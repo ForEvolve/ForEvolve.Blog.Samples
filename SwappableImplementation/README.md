@@ -1,6 +1,6 @@
 # Sample projects
 This project aims at demonstrating the interchangeability between services implementation.
-It have been built to demo the concept automatically, instead of creating a big manual procedure (it makes it easier to reproduce the use cases).
+It has been built to demo the concept automatically, instead of creating a big manual procedure (it makes it easier to reproduce the use cases).
 
 This project is not supposed to show best practices or anything.
 
@@ -23,7 +23,7 @@ But, instead of using an MVC Controller, I used the Asp.Net Core Router. See `St
 
 There are two repository implementations, one using Entity Framework Core and the other using a simple List&lt;Light&gt;.
 
-*See the schema bellow for a visual representation of the projet.*
+*See the schema below for a visual representation of the project.*
 
 ### SwappableImplementation.Tests
 The *SwappableImplementation.Tests* project contains the experiment, the automated use cases.
@@ -32,7 +32,7 @@ The *SwappableImplementation.Tests* project contains the experiment, the automat
 - The `BaseTest` class play the test definition role.
 - Both `EFRepoTest` and `InMemoryTest` inherit from `BaseTest` and defines only the `ConfigureServices` method.
 
-*See the schema bellow for a visual representation of the projet.*
+*See the schema below for a visual representation of the project.*
 
 ## Swapping at runtime
 The short answer is: it is not possible to inject different implementation for different context at runtime while using only the default Asp.Net Core DI Container.
