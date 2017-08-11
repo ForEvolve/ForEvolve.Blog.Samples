@@ -18,7 +18,7 @@ The domain is a light bulb called `Light`. You can name a light and turn it on o
 The *SwappableImplementation* project contain an empty `Startup.ConfigureServices` method. 
 The object graph is created in the tests and is different for both test classes.
 
-I followed the patterns explained in my [Design Patterns: Asp.Net Core Web API, services, and repositories](http://todo.set.this.to.the.real.url) article series.
+I followed the patterns explained in my [Design Patterns: Asp.Net Core Web API, services, and repositories | Part 1: Introduction](http://www.forevolve.com/en/articles/2017/08/11/design-patterns-web-api-service-and-repository-part-1/) article series.
 But, instead of using an MVC Controller, I used the Asp.Net Core Router. See `Startup.cs` for more info.
 
 There are two repository implementations, one using Entity Framework Core and the other using a simple List&lt;Light&gt;.
