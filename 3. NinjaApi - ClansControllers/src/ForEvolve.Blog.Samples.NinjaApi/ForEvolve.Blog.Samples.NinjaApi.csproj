@@ -7,11 +7,11 @@
 
   <ItemGroup>
     <PackageReference Include="ForEvolve" Version="1.0.0-upsilon-179" />
-    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0-rtm-26423" />
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0" />
     <PackageReference Include="Microsoft.CodeCoverage" Version="1.0.3" />
   </ItemGroup>
 
   <ItemGroup>
-    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.0-preview2-final" />
+    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.0" />
   </ItemGroup>
 </Project>
