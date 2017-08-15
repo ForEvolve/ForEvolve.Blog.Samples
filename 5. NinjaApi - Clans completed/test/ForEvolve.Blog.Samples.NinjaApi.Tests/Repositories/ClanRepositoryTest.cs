@@ -86,7 +86,7 @@ namespace ForEvolve.Blog.Samples.NinjaApi.Repositories
             public async Task Should_throw_a_NotSupportedException()
             {
                 // Arrange, Act, Assert
-                var exception = await Assert.ThrowsAsync<NotSupportedException>(() => RepositoryUnderTest.CreateAsync(null));
+                var exception = await Assert.ThrowsAsync<NotSupportedException>(() => RepositoryUnderTest.UpdateAsync(null));
             }
         }
 
@@ -96,7 +96,7 @@ namespace ForEvolve.Blog.Samples.NinjaApi.Repositories
             public async Task Should_throw_a_NotSupportedException()
             {
                 // Arrange, Act, Assert
-                var exception = await Assert.ThrowsAsync<NotSupportedException>(() => RepositoryUnderTest.CreateAsync(null));
+                var exception = await Assert.ThrowsAsync<NotSupportedException>(() => RepositoryUnderTest.DeleteAsync(null));
             }
         }
     }
