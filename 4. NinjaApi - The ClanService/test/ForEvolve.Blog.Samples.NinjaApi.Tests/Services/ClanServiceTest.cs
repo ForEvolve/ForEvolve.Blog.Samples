@@ -20,7 +20,7 @@ namespace ForEvolve.Blog.Samples.NinjaApi.Services
         public class ReadAllAsync : ClanServiceTest
         {
             [Fact]
-            public async Task Should_return_all_clansAsync()
+            public async Task Should_return_all_clans()
             {
                 // Arrange
                 var expectedClans = new ReadOnlyCollection<Clan>(new List<Clan>
@@ -41,7 +41,7 @@ namespace ForEvolve.Blog.Samples.NinjaApi.Services
         public class ReadOneAsync : ClanServiceTest
         {
             [Fact]
-            public async Task Should_return_the_expected_clanAsync()
+            public async Task Should_return_the_expected_clan()
             {
                 // Arrange
                 var clanName = "My Clan";
@@ -55,7 +55,7 @@ namespace ForEvolve.Blog.Samples.NinjaApi.Services
             }
 
             [Fact]
-            public async Task Should_return_null_if_the_clan_does_not_existAsync()
+            public async Task Should_return_null_if_the_clan_does_not_exist()
             {
                 // Arrange
                 var clanName = "My Clan";
@@ -71,7 +71,7 @@ namespace ForEvolve.Blog.Samples.NinjaApi.Services
         public class IsClanExistsAsync : ClanServiceTest
         {
             [Fact]
-            public async Task Should_return_true_if_the_clan_existAsync()
+            public async Task Should_return_true_if_the_clan_exist()
             {
                 // Arrange
                 var clanName = "Your Clan";
@@ -83,7 +83,7 @@ namespace ForEvolve.Blog.Samples.NinjaApi.Services
                 Assert.True(result);
             }
             [Fact]
-            public async Task Should_return_false_if_the_clan_does_not_existAsync()
+            public async Task Should_return_false_if_the_clan_does_not_exist()
             {
                 // Arrange
                 var clanName = "Unexisting Clan";
@@ -99,7 +99,7 @@ namespace ForEvolve.Blog.Samples.NinjaApi.Services
         public class CreateAsync : ClanServiceTest
         {
             [Fact]
-            public async Task Should_create_and_return_the_specified_clanAsync()
+            public async Task Should_create_and_return_the_specified_clan()
             {
                 // Arrange, Act, Assert
                 var exception = await Assert.ThrowsAsync<NotSupportedException>(() => ServiceUnderTest.CreateAsync(null));
