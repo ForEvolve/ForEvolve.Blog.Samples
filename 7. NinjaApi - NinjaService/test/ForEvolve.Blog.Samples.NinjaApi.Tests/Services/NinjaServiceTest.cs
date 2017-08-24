@@ -239,7 +239,7 @@ namespace ForEvolve.Blog.Samples.NinjaApi.Services
                 NinjaRepositoryMock
                     .Verify(x => x.UpdateAsync(unexistingNinja), Times.Never);
 
-                // Make sure we read the ninja from the repository before atempting an update.
+                // Make sure we read the ninja from the repository before attempting an update.
                 NinjaRepositoryMock
                     .Verify(x => x.ReadOneAsync(clanKey, ninjaKey), Times.Once);
             }
@@ -314,7 +314,7 @@ namespace ForEvolve.Blog.Samples.NinjaApi.Services
                 NinjaRepositoryMock
                     .Verify(x => x.DeleteAsync(clanName, ninjaKey), Times.Never);
 
-                // Make sure we read the ninja from the repository before atempting an update.
+                // Make sure we read the ninja from the repository before attempting an update.
                 NinjaRepositoryMock
                     .Verify(x => x.ReadOneAsync(clanName, ninjaKey), Times.Once);
             }
