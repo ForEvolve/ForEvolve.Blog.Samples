@@ -9,13 +9,13 @@ namespace ForEvolve.Blog.Samples.NinjaApi.Mappers
 {
     public class NinjaEntityEnumerableToNinjaMapperTest
     {
-        protected NinjaEntityEnumerableToNinjaMapper MapperUnderTest { get; }
+        protected EnumerableMapper<NinjaEntity, Ninja> MapperUnderTest { get; }
         protected Mock<IMapper<NinjaEntity, Ninja>> NinjaEntityToNinjaMapperMock { get; }
 
         public NinjaEntityEnumerableToNinjaMapperTest()
         {
             NinjaEntityToNinjaMapperMock = new Mock<IMapper<NinjaEntity, Ninja>>();
-            MapperUnderTest = new NinjaEntityEnumerableToNinjaMapper(NinjaEntityToNinjaMapperMock.Object);
+            MapperUnderTest = new EnumerableMapper<NinjaEntity, Ninja>(NinjaEntityToNinjaMapperMock.Object);
         }
 
         public class Map : NinjaEntityEnumerableToNinjaMapperTest
