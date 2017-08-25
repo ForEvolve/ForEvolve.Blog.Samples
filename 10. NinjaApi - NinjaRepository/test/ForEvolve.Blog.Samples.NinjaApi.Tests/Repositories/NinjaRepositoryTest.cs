@@ -201,7 +201,7 @@ namespace ForEvolve.Blog.Samples.NinjaApi.Repositories
                 var expectedNinja = new Ninja();
 
                 NinjaEntityTableStorageRepositoryMock
-                    .Setup(x => x.RemoveAsync(clanName, ninjaKey))
+                    .Setup(x => x.DeleteOneAsync(clanName, ninjaKey))
                     .ReturnsAsync(deletedEntity)
                     .Verifiable();
                 NinjaMappingServiceMock
@@ -213,7 +213,7 @@ namespace ForEvolve.Blog.Samples.NinjaApi.Repositories
                 var result = await RepositoryUnderTest.DeleteAsync(clanName, ninjaKey);
 
                 // Assert
-                NinjaEntityTableStorageRepositoryMock.Verify(x => x.RemoveAsync(clanName, ninjaKey), Times.Once);
+                NinjaEntityTableStorageRepositoryMock.Verify(x => x.DeleteOneAsync(clanName, ninjaKey), Times.Once);
                 NinjaMappingServiceMock.Verify(x => x.Map(deletedEntity), Times.Once);
                 Assert.Same(expectedNinja, result);
             }

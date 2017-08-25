@@ -29,7 +29,7 @@ namespace ForEvolve.Blog.Samples.NinjaApi.Repositories
 
         public async Task<Ninja> DeleteAsync(string clanName, string ninjaKey)
         {
-            var deletedEntity = await _ninjaEntityTableStorageRepository.RemoveAsync(clanName, ninjaKey);
+            var deletedEntity = await _ninjaEntityTableStorageRepository.DeleteOneAsync(clanName, ninjaKey);
             var deletedNinja = _ninjaMappingService.Map(deletedEntity);
             return deletedNinja;
         }
