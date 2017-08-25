@@ -23,7 +23,7 @@ namespace ForEvolve.Blog.Samples.NinjaApi.Mappers
                 }
 
                 [Fact]
-                public void Should_delegate_mapping_to_the_sinlge_entity_mapper()
+                public void Should_delegate_mapping_to_the_single_entity_mapper()
                 {
                     // Arrange
                     var ninja1 = new NinjaEntity();
