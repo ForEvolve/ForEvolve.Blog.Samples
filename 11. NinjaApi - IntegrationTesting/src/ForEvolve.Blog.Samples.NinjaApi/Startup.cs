@@ -40,7 +40,7 @@ namespace ForEvolve.Blog.Samples.NinjaApi
             // Mappers
             services.TryAddSingleton<IMapper<Ninja, NinjaEntity>, NinjaToNinjaEntityMapper>();
             services.TryAddSingleton<IMapper<NinjaEntity, Ninja>, NinjaEntityToNinjaMapper>();
-            services.TryAddSingleton<IMapper<IEnumerable<NinjaEntity>, IEnumerable<Ninja>>, NinjaEntityEnumerableToNinjaMapper>();
+            services.TryAddSingleton<IMapper<IEnumerable<NinjaEntity>, IEnumerable<Ninja>>, EnumerableMapper<NinjaEntity, Ninja>>();
 
             // Ninja
             services.TryAddSingleton<INinjaService, NinjaService>();

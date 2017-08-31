@@ -46,6 +46,19 @@ namespace ForEvolve.Blog.Samples.NinjaApi.IntegrationTests
                 Assert.NotNull(settings.AccountName);
                 Assert.Equal("MyTableName", settings.TableName);
             }
+
+            [Fact]
+            public void Should_return_TableStorageRepository_of_NinjaEntity()
+            {
+                // Arrange
+                var serviceProvider = Server.Host.Services;
+
+                // Act
+                var result = serviceProvider.GetService<ITableStorageRepository<NinjaEntity>>();
+
+                // Assert
+                Assert.IsType<TableStorageRepository<NinjaEntity>>(result);
+            }
         }
     }
 }
