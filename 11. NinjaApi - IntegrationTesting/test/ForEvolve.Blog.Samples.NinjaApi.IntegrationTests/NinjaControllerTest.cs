@@ -249,16 +249,4 @@ namespace ForEvolve.Blog.Samples.NinjaApi.IntegrationTests
             Assert.Equal(entity.Level, ninja.Level);
         }
     }
-
-    public static class TableStorageMockExtensions
-    {
-        public static NinjaEntity SetupEnforceNinjaExistenceAsync(this Mock<ITableStorageRepository<NinjaEntity>> tableStorageMock, string clanName, string ninjaKey, NinjaEntity entityToReturn = null)
-        {
-            var entity = entityToReturn ?? new NinjaEntity();
-            tableStorageMock
-                .Setup(x => x.ReadOneAsync(clanName, ninjaKey))
-                .ReturnsAsync(entity);
-            return entity;
-        }
-    }
 }
