@@ -15,18 +15,16 @@ namespace ForEvolve.AspNetCore.Localization.Controllers
             return View();
         }
 
-        public IActionResult About()
-        {
-            ViewData["Message"] = "Your application description page.";
-
-            return View();
-        }
-
         public IActionResult Contact()
         {
-            ViewData["Message"] = "Your contact page.";
+            var viewModel = new ContactViewModel();
+            return View(viewModel);
+        }
 
-            return View();
+        [HttpPost]
+        public IActionResult Contact(ContactViewModel viewModel)
+        {
+            return View("ContactResult", viewModel);
         }
 
         public IActionResult Error()
