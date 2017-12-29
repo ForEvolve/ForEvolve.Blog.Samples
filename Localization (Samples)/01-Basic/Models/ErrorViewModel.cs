@@ -1,6 +1,6 @@
 using System;
 
-namespace ForEvolve.AspNetCore.Localization.Models
+namespace AspNetCore.Localization.Models
 {
     public class ErrorViewModel
     {

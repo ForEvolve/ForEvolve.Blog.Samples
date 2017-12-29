@@ -4,9 +4,9 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using ForEvolve.AspNetCore.Localization.Models;
+using AspNetCore.Localization.Models;
 
-namespace ForEvolve.AspNetCore.Localization.Controllers
+namespace AspNetCore.Localization.Controllers
 {
     public class HomeController : Controller
     {

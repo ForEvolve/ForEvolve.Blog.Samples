@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace ForEvolve.AspNetCore.Localization
+namespace AspNetCore.Localization
 {
     public class Startup
     {
@@ -21,7 +21,14 @@ namespace ForEvolve.AspNetCore.Localization
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc();
+            // Register localization services & options with ASP.NET Core DI container
+            services
+                .AddForEvolveLocalization();
+
+            // MVC
+            services
+                .AddMvc()
+                .AddForEvolveMvcLocalization(); // Configure MVC to use ForEvolve Localization, based on configuration
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -38,6 +45,12 @@ namespace ForEvolve.AspNetCore.Localization
 
             app.UseStaticFiles();
 
+            // Call UseRequestLocalization(options):
+            // Adds the Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware to automatically
+            // set culture information for requests based on information provided by the client.
+            app.UseForEvolveRequestLocalization();
+
+            // MVC
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
