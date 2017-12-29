@@ -20,6 +20,7 @@ namespace AspNetCore.Localization.Models
 
         [Required]
         [EmailAddress]
+        [Display(Name = "Email")]
         public string Email { get; set; }
 
         [Url]
@@ -28,10 +29,12 @@ namespace AspNetCore.Localization.Models
 
         [Required]
         [MaxLength(50)]
+        [Display(Name = "Subject")]
         public string Subject { get; set; }
 
         [Required]
         [MaxLength(2000)]
+        [Display(Name = "Message")]
         public string Message { get; set; }
     }
 }
