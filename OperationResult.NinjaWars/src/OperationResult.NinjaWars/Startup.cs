@@ -23,7 +23,7 @@ namespace OperationResult.NinjaWars
             app.UseRouter(builder =>
             {
                 var clanService = new ClanWarService();
-                builder.MapGet("api/clans/{clanId}/wars", async (request, response, data) =>
+                builder.MapGet("api/clans/{clanId}/warstatus", async (request, response, data) =>
                 {
                     // Read param
                     var clanId = data.Values["clanId"].ToString();
