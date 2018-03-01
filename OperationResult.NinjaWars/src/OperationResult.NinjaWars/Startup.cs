@@ -31,9 +31,19 @@ namespace OperationResult.NinjaWars
                     // Execute operation
                     var result = clanService.ReadAllWarStatusOf(clanId);
 
-                    // return the operation result (serialized as JSON)
-                    var serializedAll = JsonConvert.SerializeObject(result);
-                    await response.WriteAsync(serializedAll);
+                    // Handle the result
+                    string jsonResponse;
+                    if (result.IsSuccessful)
+                    {
+                        // Do something with the value
+                        jsonResponse = JsonConvert.SerializeObject(result.Value);
+                    }
+                    else
+                    {
+                        // Do somthing with the error
+                        jsonResponse = JsonConvert.SerializeObject(new { error = result.Error });
+                    }
+                    await response.WriteAsync(jsonResponse);
                 });
             });
         }
@@ -90,7 +100,7 @@ namespace OperationResult.NinjaWars
     public class ReadWarStatusOperationResult
     {
         [JsonProperty("successful")]
-        public bool Successful => string.IsNullOrWhiteSpace(Error);
+        public bool IsSuccessful => string.IsNullOrWhiteSpace(Error);
 
         [JsonProperty("value", DefaultValueHandling = DefaultValueHandling.Ignore)]
         public WarStatus[] Value { get; set; }
