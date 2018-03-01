@@ -11,6 +11,7 @@
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
+      "launchUrl": "api/clans/c810e13c-1083-4f39-aebc-e150c82dc770/wars",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
@@ -18,6 +19,7 @@
     "OperationResult.NinjaWars": {
       "commandName": "Project",
       "launchBrowser": true,
+      "launchUrl": "api/clans/ASDF-1234/wars",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
