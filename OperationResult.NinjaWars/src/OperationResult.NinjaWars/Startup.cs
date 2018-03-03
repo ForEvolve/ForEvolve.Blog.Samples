@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -44,6 +46,31 @@ namespace OperationResult.NinjaWars
                         jsonResponse = JsonConvert.SerializeObject(new { error = result.Error });
                     }
                     await response.WriteAsync(jsonResponse);
+                });
+
+                builder.MapVerb("PATCH", "api/clans/{clanId}/warstatus", async (request, response, data) =>
+                {
+                    // Read param
+                    var clanId = data.Values["clanId"].ToString();
+
+                    // Deserialize the JSON body
+                    using (StreamReader reader = new StreamReader(request.Body, Encoding.UTF8))
+                    {
+                        var jsonText = await reader.ReadToEndAsync();
+                        var warStatus = JsonConvert.DeserializeObject<WarStatus>(jsonText);
+
+                        // Execute operation
+                        var result = clanService.SetWarStatus(clanId, warStatus.TargetClanId, warStatus.IsAtWar);
+
+                        // Handle the result
+                        if (result.IsSuccessful)
+                        {
+                            return;
+                        }
+                        response.StatusCode = StatusCodes.Status404NotFound;
+                        var jsonResponse = JsonConvert.SerializeObject(new { error = result.Error });
+                        await response.WriteAsync(jsonResponse);
+                    }
                 });
             });
         }
@@ -95,6 +122,28 @@ namespace OperationResult.NinjaWars
                 };
             }
         }
+
+        public SetWarStatusOperationResult SetWarStatus(string clanId, string targetClanId, bool isAtWar)
+        {
+            if (clanId == "c810e13c-1083-4f39-aebc-e150c82dc770" && targetClanId == "002A8E50-E39B-4AC6-9411-2F02AAE6C845")
+            {
+                return new SetWarStatusOperationResult();
+            }
+
+            return new SetWarStatusOperationResult
+            {
+                Error = $"The clan {clanId} or the target clan {targetClanId} was not found"
+            };
+        }
+    }
+
+    public class SetWarStatusOperationResult
+    {
+        [JsonProperty("successful")]
+        public bool IsSuccessful => string.IsNullOrWhiteSpace(Error);
+
+        [JsonProperty("error", DefaultValueHandling = DefaultValueHandling.Ignore)]
+        public string Error { get; set; }
     }
 
     public class ReadWarStatusOperationResult

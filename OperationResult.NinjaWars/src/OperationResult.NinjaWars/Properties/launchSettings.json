@@ -11,7 +11,7 @@
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      "launchUrl": "api/clans/c810e13c-1083-4f39-aebc-e150c82dc770/wars",
+      "launchUrl": "api/clans/c810e13c-1083-4f39-aebc-e150c82dc770/warstatus",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
