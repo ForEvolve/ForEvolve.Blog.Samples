@@ -35,14 +35,14 @@ namespace OperationResult.NinjaWars
 
                     // Handle the result
                     string jsonResponse;
-                    if (result.IsSuccessful)
+                    if (result.Succeeded)
                     {
                         // Do something with the value
                         jsonResponse = JsonConvert.SerializeObject(result.Value);
                     }
                     else
                     {
-                        // Do somthing with the error
+                        // Do something with the error
                         jsonResponse = JsonConvert.SerializeObject(new { error = result.Error });
                     }
                     await response.WriteAsync(jsonResponse);
@@ -63,7 +63,7 @@ namespace OperationResult.NinjaWars
                         var result = clanService.SetWarStatus(clanId, warStatus.TargetClanId, warStatus.IsAtWar);
 
                         // Handle the result
-                        if (result.IsSuccessful)
+                        if (result.Succeeded)
                         {
                             return;
                         }
@@ -139,8 +139,8 @@ namespace OperationResult.NinjaWars
 
     public class SetWarStatusOperationResult
     {
-        [JsonProperty("successful")]
-        public bool IsSuccessful => string.IsNullOrWhiteSpace(Error);
+        [JsonProperty("succeeded")]
+        public bool Succeeded => string.IsNullOrWhiteSpace(Error);
 
         [JsonProperty("error", DefaultValueHandling = DefaultValueHandling.Ignore)]
         public string Error { get; set; }
@@ -148,8 +148,8 @@ namespace OperationResult.NinjaWars
 
     public class ReadWarStatusOperationResult
     {
-        [JsonProperty("successful")]
-        public bool IsSuccessful => string.IsNullOrWhiteSpace(Error);
+        [JsonProperty("succeeded")]
+        public bool Succeeded => string.IsNullOrWhiteSpace(Error);
 
         [JsonProperty("value", DefaultValueHandling = DefaultValueHandling.Ignore)]
         public WarStatus[] Value { get; set; }
