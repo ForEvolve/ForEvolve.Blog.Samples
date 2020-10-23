@@ -1,8 +1,10 @@
 ﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.TestHost;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Net.Http;
 using System.Text;
 
@@ -21,6 +23,12 @@ namespace ForEvolve.Blog.Samples.NinjaApi.IntegrationTests
             var builder = Program
                 .CreateWebHostBuilder(null)
                 .UseEnvironment(Environment)
+                .ConfigureAppConfiguration(b =>
+                {
+                    var dir = Directory.GetCurrentDirectory();
+                    var file = Path.Combine(dir, "appsettings.json");
+                    b.AddJsonFile(file);
+                })
                 .ConfigureServices(ConfigureServices);
 
             Server = new TestServer(builder);
