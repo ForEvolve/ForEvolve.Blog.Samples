@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="ForEvolve" Version="1.0.0-upsilon-180" />
+    <PackageReference Include="ForEvolve.App" Version="1.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.9" />
     <PackageReference Include="Microsoft.CodeCoverage" Version="1.0.3" />
   </ItemGroup>

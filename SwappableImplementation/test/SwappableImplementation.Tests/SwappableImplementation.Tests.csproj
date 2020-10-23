@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="ForEvolve.AspNetCore" Version="1.0.0-upsilon-00003" />
+    <PackageReference Include="ForEvolve.AspNetCore" Version="1.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.TestHost" Version="2.0.0" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.3.0" />
     <PackageReference Include="xunit" Version="2.3.0-beta3-build3705" />
